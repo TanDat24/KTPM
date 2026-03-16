@@ -1,0 +1,8 @@
+version: "3.9"
+
+services:
+  web:
+    image: nginx:latest
+    container_name: my-nginx
+    ports:
+      - "8080:80"   # map host port 8080 → container port 80

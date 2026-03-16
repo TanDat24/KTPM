@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql-container
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword  # mật khẩu root
+      MYSQL_USER: user                   # username bạn yêu cầu
+      MYSQL_PASSWORD: password           # password user
+      MYSQL_DATABASE: mydb               # tên database mặc định
+    ports:
+      - "3306:3306"  # map cổng host → container
+    volumes:
+      - db-data:/var/lib/mysql  # persistent dữ liệu
+
+volumes:
+  db-data:
